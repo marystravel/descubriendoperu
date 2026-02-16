@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מרי'ס טרוול | קטלוג טיולים בפרו</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --orange-main: #FF8C00;
+            --black-main: #1A1A1A;
+            --white-main: #FFFFFF;
+            --gray-light: #F4F4F4;
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--black-main);
+            background-color: var(--white-main);
+            line-height: 1.6;
+            direction: rtl;
+            /* Dirección de texto para hebreo */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: var(--white-main);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--black-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Espacio entre logo y texto */
+        }
+
+
+        .logo img {
+            height: 40px;
+            /* Tamaño del logo ajustable */
+            width: auto;
+        }
+
+        .logo span {
+            color: var(--orange-main);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black-main);
+            margin-right: 20px;
+            /* Cambiado de left a right para RTL */
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange-main);
+        }
+
+        /* Selector de Idioma */
+        .lang-switch {
+            border: 2px solid var(--orange-main);
+            color: var(--black-main);
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            gap: 5px;
+        }
+
+        .lang-switch:hover {
+            background-color: var(--orange-main);
+            color: white;
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+            cursor: pointer;
+            font-size: 2rem;
+            border: none;
+            background: none;
+        }
+
+        .mobile-nav {
+            display: none;
+            background-color: var(--white-main);
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: var(--black-main);
+            font-weight: 700;
+        }
+
+        /* Hero */
+        .hero {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white-main);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--orange-main);
+        }
+
+        .cta-button {
+            background-color: var(--orange-main);
+            color: var(--white-main);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--black-main);
+            transform: scale(1.05);
+        }
+
+        /* Categorías */
+        .category-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: var(--orange-main);
+            margin: 10px auto;
+        }
+
+        /* Grid de Tours */
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--white-main);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #777;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .card h3 {
+            color: var(--orange-main);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .card ul {
+            list-style: none;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .card ul li::before {
+            content: '• ';
+            color: var(--orange-main);
+            font-weight: bold;
+        }
+
+        .card-footer {
+            padding: 20px;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+        }
+
+        /* Otras secciones */
+        .other-services {
+            background-color: var(--black-main);
+            color: var(--white-main);
+            text-align: center;
+        }
+
+        .other-services h2 {
+            color: var(--orange-main);
+            margin-bottom: 20px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .service-item {
+            padding: 30px;
+            border: 1px solid var(--orange-main);
+            border-radius: 10px;
+        }
+
+        /* Políticas */
+        .policy-section {
+            background-color: var(--gray-light);
+        }
+
+        .policy-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .policy-box h3 {
+            color: var(--orange-main);
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: block;
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo"><span>מרי'ס</span> טרוול <img src="logo_Mary.png" alt="logo"></a>
+                <nav class="nav-links">
+                    <a href="#destinos">יעדים מרכזיים</a>
+                    <a href="#aventura">הרפתקאות</a>
+                    <a href="#trekking">טרקים</a>
+                    <a href="#cultura">תרבות</a>
+                    <a href="#servicios">שירותים</a>
+                    <a href="es.html" class="lang-switch">(Español)</a>
+                </nav>
+                <button id="menu-btn" class="mobile-menu-toggle">☰</button>
+            </div>
+        </div>
+        <nav id="mobile-nav" class="mobile-nav">
+            <a href="#destinos">יעדים מרכזיים</a>
+            <a href="#aventura">הרפתקאות</a>
+            <a href="#trekking">טרקים</a>
+            <a href="#cultura">תרבות</a>
+            <a href="#servicios">שירותים</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>גלו את הקסם של <span>פרו</span></h1>
+            <p>הרפתקאות אותנטיות המיועדות למטיילים בלתי נשכחים.</p>
+            <br>
+            <a href="https://wa.me/51953112717" target="_blank" class="cta-button">הזמינו עכשיו בוואטסאפ!</a>
+        </div>
+    </section>
+
+    <section id="destinos" class="section-padding container">
+        <h2 class="category-title">יעדים שאסור לפספס</h2>
+        <div class="tour-grid">
+            <!-- Machu Picchu Tren -->
+            <div class="card">
+                <div class="card-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=600'); background-size: cover;">
+                </div>
+                <div class="card-content">
+                    <h3>מאצ'ו פיצ'ו (ברכבת)</h3>
+                    <ul>
+                        <li>איסוף ב-04:00 לפנות בוקר</li>
+                        <li>כולל רכבת פנורמית</li>
+                        <li>מדריך מקצועי לשעה וחצי</li>
+                        <li>כולל חזרה לקוסקו</li>
+                    </ul>
+                    <p><strong>דרישה:</strong> דרכון מקורי.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="https://wa.me/51953112717" class="cta-button">פרטים נוספים</a>
+                </div>
+            </div>
+
+            <!-- Rainbow Mountain -->
+            <div class="card">
+                <div class="card-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1590595906931-81f04f0ccebb?q=80&w=600'); background-size: cover;">
+                </div>
+                <div class="card-content">
+                    <h3>הר הצבעים</h3>
+                    <ul>
+                        <li>יציאה ב-04:30 לפנות בוקר</li>
+                        <li>הליכה של שעתיים (עלייה)</li>
+                        <li>כולל ארוחת בוקר וצהריים</li>
+                        <li>אופציונלי: השכרת סוסים</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="https://wa.me/51953112717" class="cta-button">פרטים נוספים</a>
+                </div>
+            </div>
+
+            <!-- Humantay -->
+            <div class="card">
+                <div class="card-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1544376374-6b8ac421aac9?q=80&w=600'); background-size: cover;">
+                </div>
+                <div class="card-content">
+                    <h3>לגונה הומנטאי</h3>
+                    <ul>
+                        <li>מי טורקיז צלולים</li>
+                        <li>יציאה ב-04:30 לפנות בוקר</li>
+                        <li>הליכה מאתגרת של שעה וחצי</li>
+                        <li>נופים של הר סלקנטאי המושלג</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="https://wa.me/51953112717" class="cta-button">פרטים נוספים</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aventura" class="section-padding container">
+        <h2 class="category-title">אדרנלין טהור</h2>
+        <div class="tour-grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>רפטינג ואומגה</h3>
+                    <p>שעתיים של שייט בנהר, כולל סאונה אינקה ואומגה בסיום. חוויה מלאה באנרגיה!</p>
+                </div>
+                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">צפו בעוד</a></div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>אופני שמיים וסנפלינג</h3>
+                    <p>דיווש על כבלים בגובה 50 מטר, טיפוס צוקים וירידה בסנפלינג.</p>
+                </div>
+                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">צפו בעוד</a></div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>בנג'י / סופרמן</h3>
+                    <p>קפיצות אקסטרים בקוסקו. משקל מינימלי 45 ק"ג. זמין בכל יום מלבד ימי שני.</p>
+                </div>
+                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">צפו בעוד</a></div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>טרקטורונים (ATV)</h3>
+                    <p>ביקור בבריכות המלח של מאראס ובאתר מוראי בצורה מרגשת. יציאות בבוקר ואחה"צ.</p>
+                </div>
+                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">צפו בעוד</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trekking" class="section-padding container">
+        <h2 class="category-title">טבע וטרקים</h2>
+        <div class="tour-grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>סלקנטאי (5 ימים)</h3>
+                    <p>שירות VIP עם אוהלים מרווחים ושפים מקצועיים. הטרק המפורסם ביותר למאצ'ו פיצ'ו.</p>
+                </div>
+                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">לפרטים</a></div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>פארק מאנו (3 או 4 ימים)</h3>
+                    <p>צלילה אל תוך הג'ונגל של האמזונס. צפייה בציפורים, תנינים וקופים בסביבתם הטבעית.</p>
+                </div>
+                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">לפרטים</a></div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>7 הלגונות של אוסנגאטה</h3>
+                    <p>טיול יום אחד. 7 לגונות טורקיז למרגלות הר אוסנגאטה המושלג. מינימום 3 אנשים.</p>
+                </div>
+                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">לפרטים</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cultura" class="section-padding container">
+        <h2 class="category-title">תרבות והיסטוריה</h2>
+        <div class="tour-grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>העמק הקדוש VIP</h3>
+                    <p>צ'ינצ'רו, מאראס, מוראי, אולאנטאיטמבו ופיסאק. כולל מדריך והסעות.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>סיור בעיר קוסקו</h3>
+                    <p>6 שעות של ביקור בסקסאיוואמאן, קנקי, פוקה פוקארה וטמבומאצ'אי.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>מאראס ומוראי</h3>
+                    <p>ביקור במעבדה החקלאית של האינקה ובמכרות המלח המפורסמים של מאראס.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="other-services section-padding">
+        <div class="container">
+            <h2>שירותים נוספים</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>✈️ טיסות</h3>
+                    <p>טיסות פנים ובינלאומיות במחירים הטובים ביותר.</p>
+                </div>
+                <div class="service-item">
+                    <h3>🚌 אוטובוסים</h3>
+                    <p>כרטיסים לכל רחבי פרו וקשרים לבוליביה.</p>
+                </div>
+                <div class="service-item">
+                    <h3>🛠️ תמיכה 24/7</h3>
+                    <p>סיוע רציף לאורך כל הטיול שלכם.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="politicas" class="policy-section section-padding">
+        <div class="container">
+            <div class="policy-box">
+                <h2 style="color: var(--orange-main);">פרטיות ואבטחה</h2>
+                <h3>1. שימוש בנתונים</h3>
+                <p>מרי'ס טרוול משתמשת בנתונים שלכם אך ורק לניהול ההזמנות והפניות שלכם דרך וואטסאפ.</p>
+                <h3>2. אבטחת תשלומים</h3>
+                <p>ההזמנות מאושרות באמצעות אמצעי תשלום מאובטחים ושקופים.</p>
+                <h3>3. קשר ישיר</h3>
+                <p>ביצירת קשר איתנו, אתם מסכימים לקבל מידע על הצעות ושירותים בלעדיים שלנו.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>מרי'ס טרוול</h4>
+                    <p>רחוב מרקס 250 (קומה 2), קוסקו.</p>
+                    <p>WA: +51 953 112 717</p>
+                </div>
+                <div>
+                    <h4>טיולים</h4>
+                    <p>מאצ'ו פיצ'ו</p>
+                    <p>טרק סלקנטאי</p>
+                    <p>ג'ונגל מאנו</p>
+                </div>
+                <div>
+                    <h4>מידע</h4>
+                    <p>מדיניות</p>
+                    <p>תנאים</p>
+                    <p>שאלות נפוצות</p>
+                </div>
+                <div>
+                    <h4>עקבו אחרינו</h4>
+                    <p>📸 <a href="https://www.instagram.com/mari_travel_peru/" target="_blank">אינסטגרם</a></p>
+                    <p>💬 <a href="https://wa.me/51953112717" target="_blank">וואטסאפ</a></p>
+                </div>
+            </div>
+            <div
+                style="text-align: center; opacity: 0.5; font-size: 0.8rem; border-top: 1px solid #333; padding-top: 20px;">
+                © 2026 מרי'ס טרוול. כל הזכויות שמורות.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const nav = document.getElementById('mobile-nav');
+        btn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            btn.textContent = nav.classList.contains('active') ? '✖' : '☰';
+        });
+
+        nav.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                nav.classList.remove('active');
+                btn.textContent = '☰';
+            });
+        });
+    </script>
+</body>
+
+</html>

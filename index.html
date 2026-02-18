@@ -7,7 +7,7 @@
     <title>Mari's Travel | Catálogo de Excursiones en Perú</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --orange-main: #FF8C00;
@@ -352,6 +352,47 @@
         details[open] .more-details-btn::before {
             content: "➖ ";
         }
+
+        /* Estilo base (para computadoras) */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Ajustes para celulares (Pantallas menores a 768px) */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                /* Un poco más chico */
+                height: 50px;
+                bottom: 20px;
+                /* Más cerca del borde inferior */
+                right: 20px;
+                /* Más cerca del borde derecho */
+                font-size: 28px;
+                /* Icono proporcional */
+            }
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -368,7 +409,7 @@
                     <a href="#cultura">Cultura</a>
                     <a href="#servicios">Servicios</a>
                     <a href="#nosotros">Nosotros</a>
-                    <a href="hebr.html" class="lang-switch">(עִברִית)</a>
+                    <a href="hebreo.html" class="lang-switch">(עִברִית)</a>
                 </nav>
                 <button id="menu-btn" class="mobile-menu-toggle">☰</button>
             </div>
@@ -380,7 +421,7 @@
             <a href="#cultura">Cultura</a>
             <a href="#servicios">Servicios</a>
             <a href="#nosotros">Nosotros</a>
-            <a href="hebr.html" class="lang-switch">(עִברִית)</a>
+            <a href="hebreo.html" class="lang-switch">(עִברִית)</a>
         </nav>
     </header>
 
@@ -389,7 +430,8 @@
             <h1>Descubre la Magia de <span>Perú</span></h1>
             <p>Experiencias inolvidables para viajeros auténticos.</p>
             <br>
-            <a href="https://wa.me/51953112717" target="_blank" class="cta-button">¡Reserva por WhatsApp!</a>
+            <a href="https://wa.me/51953112717?text=Hola%20Mari,%20quiero%20info%20de%20las%20excursiones!"
+                target="_blank" class="cta-button">¡Reserva por WhatsApp!</a>
         </div>
     </section>
 
@@ -414,9 +456,7 @@
                     </ul>
                     <p><strong>Requisito:</strong> Pasaporte Original.</p>
                 </div>
-                <div class="card-footer">
-                    <a href="https://wa.me/51953112717" class="cta-button">Consultar</a>
-                </div>
+
             </div>
 
             <!-- Rainbow Mountain -->
@@ -428,19 +468,17 @@
                     <ul>
                         <p>Conquista la cima de Vinicunca y descubre por qué es considerada uno de los 30 paisajes más
                             bellos del mundo. Déjate asombrar por su coloración natural única y la majestuosidad de la
-                            cordillera del Vilcanota en una expedición inolvidable</p>                       
+                            cordillera del Vilcanota en una expedición inolvidable</p>
                     </ul>
                     <p><a href="https://www.instagram.com/p/C6J80RaPM3o/?img_index=4" target="_blank">📸 Galería de
                             fotos</a></p>
-                     <p><a href="Itinerarios ES/MONTAÑA DE COLORES 1DIA-ESPAÑOL.pdf" download="Itinerario_Montaña_MarisTravel"
-                            class="download-button">
+                    <p><a href="Itinerarios ES/MONTAÑA DE COLORES 1DIA-ESPAÑOL.pdf"
+                            download="Itinerario_Montaña_MarisTravel" class="download-button">
                             📥 Descargar Itinerario
                         </a></p>
-                            
+
                 </div>
-                <div class="card-footer">
-                    <a href="https://wa.me/51953112717" class="cta-button">Consultar</a>
-                </div>
+
             </div>
 
             <!-- Humantay -->
@@ -454,16 +492,12 @@
                             hermosa laguna la cual te invita a disfrutar de sus aguas cristalinas y del maravilloso
                             paisaje que la rodea! ¡Acompáñanos en esta aventura a la Laguna de Humantay!</p>
                     </ul>
-                    <p><a href="https://www.instagram.com/p/CrLl2zWuPb7/?img_index=1" target="_blank">📸 Galería de
+                    <p><a href="https://www.instagram.com/stories/highlights/18078441446358022/" target="_blank">📸 Galería de
                             fotos</a></p>
                     <p><a href="Itinerarios ES/LAGUNA HUMANTAY  ESPAÑOL.pdf" download="Itinerario_Humantay_MarisTravel"
                             class="download-button">
                             📥 Descargar Itinerario
                         </a></p>
-
-                </div>
-                <div class="card-footer">
-                    <a href="https://wa.me/51953112717" class="cta-button">Consultar</a>
                 </div>
             </div>
         </div>
@@ -473,67 +507,68 @@
         <h2 class="category-title">Adrenalina Pura</h2>
         <div class="tour-grid">
             <div class="card">
-                 <div class="card-img"
-                        style="background-image: url('img/rafting.jpeg'); background-size: cover;">
-                    </div>
+                <div class="card-img" style="background-image: url('img/rafting.jpeg'); background-size: cover;">
+                </div>
                 <div class="card-content">
-                    
+
                     <h3>Rafting & Tirolesa</h3>
                     <p>Dos horas de descenso en el río, incluye sauna inca y tirolesa al finalizar. ¡Máxima diversión!
                     </p>
-                   
+
                 </div>
             </div>
             <div class="card">
-                 <div class="card-img"
-                        style="background-image: url('img/skyBike.jpeg'); background-size: cover;">
-                    </div>
-                <div class="card-content">                     
+                <div class="card-img" style="background-image: url('img/skyBike.jpeg'); background-size: cover;">
+                </div>
+                <div class="card-content">
                     <h3>Sky Bikes & Rapel</h3>
                     <p>Pedalea sobre cables a 50 metros de altura, escala en roca y desciende en rapel.</p>
                 </div>
-               
+
             </div>
             <div class="card">
-                 <div class="card-img"
-                        style="background-image: url('img/bungee.jpeg'); background-size: cover;">
-                    </div>
+                <div class="card-img" style="background-image: url('img/bungee.jpeg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Saltos Extremos: Bungee y Superman</h3>
                     <p>Siente la adrenalina pura en Cusco con nuestros saltos de altura extrema. Mínimo 45kg. Disponible
                         todos los días. Salidas cada hora de 9:00 a 16:30</p>
-                </div>               
+                </div>
             </div>
             <div class="card">
+                <div class="card-img" style="background-image: url('img/cuatri.jpeg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Cuatrimotos (ATV)</h3>
                     <p>Visita las Salineras de Maras y Moray de forma emocionante. Salidas 07:00 AM o 13:00 PM.</p>
                 </div>
-                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">Ver Más</a></div>
             </div>
             <div class="card">
+                <div class="card-img" style="background-image: url('img/canyoing.jpeg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Canyoning: Descenso de Cataratas</h3>
                     <p>Desafía la gravedad en una aventura vertical inolvidable. Desciende a través de tres cascadas
                         espectaculares de 25, 12 y 8 metros de altura rodeado de naturaleza pura.</p>
                 </div>
-                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">Ver Más</a></div>
             </div>
             <div class="card">
+                <div class="card-img" style="background-image: url('img/paint.jpeg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Paintball y Fútbol en burbujas</h3>
                     <p>Libera tensiones con nuestras batallas de Paintball o diviértete al máximo con el Fútbol en
                         Burbujas. ¡La dosis perfecta de acción y risas en Cusco!</p>
                 </div>
-                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">Ver Más</a></div>
             </div>
             <div class="card">
+                <div class="card-img" style="background-image: url('img/laser.jpeg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Lasér game</h3>
                     <p>Equípate con chalecos y armas láser para la batalla definitiva. Una actividad perfecta para
                         grupos que buscan emoción y competencia sana.</p>
                 </div>
-                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">Ver Más</a></div>
             </div>
         </div>
     </section>
@@ -542,6 +577,8 @@
         <h2 class="category-title">Naturaleza y Treks</h2>
         <div class="tour-grid">
             <div class="card">
+                 <div class="card-img" style="background-image: url('img/salkantay-trek-full.jpg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Salkantay Trek: La Ruta de los Glaciares</h3>
                     <p>Vive el trek más espectacular hacia Machu Picchu, una travesía de alta montaña que te llevará
@@ -549,32 +586,33 @@
                         una experiencia VIP con carpas amplias de alta montaña, chefs profesionales y menús gourmet
                         adaptados a tus necesidades.
                     </p>
-                    <p><a href="Itinerarios ES/SALKANTAY 5D en español.pdf"
-                            download="Itinerario_Salkantay_MarisTravel" class="download-button">
+                    <p><a href="Itinerarios ES/SALKANTAY 5D en español.pdf" download="Itinerario_Salkantay_MarisTravel"
+                            class="download-button">
                             📥 Descargar Itinerario
                         </a></p>
                 </div>
-                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">Detalles</a></div>
+
             </div>
             <div class="card">
-                  <div class="card-img"
-                        style="background-image: url('img/manu.jpg'); background-size: cover;">
-                    </div>
+                <div class="card-img" style="background-image: url('img/manu.jpg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Parque Nacional del Manu: El Corazón del Amazonas</h3>
-                    <p>Sumérgete en la selva amazónica. Observación de aves, caimanes y monos en su hábitat natural.</p>
-                    <p>Opción 3 Días / 2 Noches: Visita al bosque nublado, observación del Gallito de las Rocas, paseo
-                        en bote, avistamiento de guacamayos en la pared de arcilla y caminatas nocturnas.
-                    <p> Opción 4 Días / 3 Noches: Incluye lo anterior más visitas a plantaciones de coca, centros de
-                        rescate de animales y mayor tiempo de exploración.
-
-                    </p>
-
-                    Actividades extra: Tirolesa (Zipline) gratuita para huéspedes del Amazon Manu Lodge.</p>
+                    <p>Sumérgete en la selva amazónica. Observación de aves, caimanes y monos en su hábitat natural.
+                        Visita al bosque nublado, observación del Gallito de las Rocas, paseo
+                        en bote, avistamiento de guacamayos en la pared de arcilla y caminatas nocturnas.</p>
+  <p><a href="https://www.instagram.com/p/DU4cOJiEQOJ/?img_index=1" target="_blank">📸 Galería de
+                            fotos</a></p>
+                    <p><a href="Itinerarios ES/Manu 3 dias 2 noches español-1.pdf"
+                            download="Itinerario_Manu_MarisTravel" class="download-button">
+                            📥 Descargar Itinerario
+                        </a></p>
                 </div>
-                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">Detalles</a></div>
+
             </div>
             <div class="card">
+                <div class="card-img" style="background-image: url('img/Ausan.jpeg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Ausangate: El Circuito de las 7 Lagunas</h3>
                     <ul>
@@ -582,26 +620,23 @@
                             de siete lagunas de colores turquesa y esmeralda. Una experiencia que combina espejos de
                             agua cristalina, glaciares imponentes y la oportunidad de relajarte en aguas termales
                             naturales al final del trayecto.</p>
-                        <li>Recogida: 04:30 AM en tu hostal.</li>
-                        <li>Duración: 3.5 h de viaje, 2.5 h de caminata por trayecto. Regreso aprox. 18:30.</li>
-                        <li>Incluye: Transporte, guía, desayuno y almuerzo.</li>
-                        <li>No incluye: Entrada (10 soles), baños termales (5 soles, opcional).</li>
-                        <li>Mínimo 3 personas. Opción de alquilar caballos antes de iniciar</li>
+                        <p><a href="Itinerarios ES/AUSANGATE 7LAGUNAS -ESPAÑOL.pdf"
+                                download="Itinerario_Manu_MarisTravel" class="download-button">
+                                📥 Descargar Itinerario
+                            </a></p>
                     </ul>
                 </div>
-                <div class="card-footer"><a href="https://wa.me/51953112717" class="cta-button">Detalles</a></div>
+
             </div>
             <div class="card">
+                <div class="card-img" style="background-image: url('img/lagunahuma.jpg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Laguna Humantay: El Espejo Turquesa de los Andes</h3>
                     <ul>
                         <p>Descubre uno de los tesoros más impresionantes de Cusco. Déjate cautivar por el intenso color
                             turquesa de sus aguas cristalinas, alimentadas directamente por el majestuoso nevado
                             Humantay en una experiencia visual sin igual.</p>
-                        <li>Recogida: 04:30 AM. Regreso aprox. 18:30.</li>
-                        <li>Duración: 3.5 h de viaje, 1.5 h de ascenso, tiempo en la laguna y retorno.</li>
-                        <li>Incluye: Transporte, guía, desayuno y almuerzo.</li>
-                        <li>No incluye: Entrada (20 soles).</li>
                     </ul>
                     <p><a href="Itinerarios ES/LAGUNA HUMANTAY  ESPAÑOL.pdf" download="Itinerario_Humantay_MarisTravel"
                             class="download-button">
@@ -617,38 +652,62 @@
         <h2 class="category-title">Cultura e Historia</h2>
         <div class="tour-grid">
             <div class="card">
-                 <div class="card-img" style="background-image: url('img/ANDENES-DE-OLLANTAYTAMBO.jpg'); background-size: cover;">
+                <div class="card-img"
+                    style="background-image: url('img/ANDENES-DE-OLLANTAYTAMBO.jpg'); background-size: cover;">
                 </div>
                 <div class="card-content">
                     <h3>Valle Sagrado VIP</h3>
-                    <p>¡Conoce uno de los valles más fértiles del sur peruano! Visitaras Chinchero, Ollantaytambo y Pisaq. Incluye guía y transporte.</p>
-                     <p><a href="Itinerarios ES/VALLE SAGRADO TRADICIONAL.pdf" download="Itinerario_Humantay_MarisTravel"
+                    <p>¡Conoce uno de los valles más fértiles del sur peruano! Visitaras Chinchero, Ollantaytambo y
+                        Pisaq. Incluye guía y transporte.</p>
+                    <p><a href="Itinerarios ES/VALLE SAGRADO TRADICIONAL.pdf" download="Itinerario_valle_MarisTravel"
                             class="download-button">
                             📥 Descargar Itinerario
                         </a></p>
                 </div>
             </div>
             <div class="card">
+                <div class="card-img"
+                    style="background-image: url('img/tambomachay_ruins.jpg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>City Tour Cusco</h3>
-                    <p>6 horas recorriendo Sacsayhuaman, Q'enqo, Puka Pukara y Tambomachay.</p>
+                    <p>La misteriosa ciudad del Imperio Inca es una excelente alternativa para visitar.
+                        Sies horas recorriendo Sacsayhuaman, Q'enqo, Puka Pukara y Tambomachay.</p>
+                    <p><a href="Itinerarios ES/CITY TOUR CUSCO-ESPAÑOL.pdf" download="Itinerario_city_MarisTravel"
+                            class="download-button">
+                            📥 Descargar Itinerario
+                        </a></p>
                 </div>
             </div>
             <div class="card">
+                <div class="card-img" style="background-image: url('img/maras.jpg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Maras & Moray</h3>
                     <p>Visita el laboratorio agrícola inca y las famosas minas de sal de Maras.</p>
-
+                    <p><a href="Itinerarios ES/MARAS MORAY MEDIO DIA-ESPAÑOL.docx.pdf"
+                            download="Itinerario_maras_MarisTravel" class="download-button">
+                            📥 Descargar Itinerario
+                        </a></p>
                 </div>
             </div>
             <div class="card">
+                <div class="card-img" style="background-image: url('img/vallesur.jpg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Valle Sur</h3>
-                    <p>Tipón, Pikillacta y la "Capilla Sixtina de América" en Andahuaylillas.</p>
+                    <p>Recoore el centro arqueológico Tipón, el complejo arqueológico Pikillacta y la "Capilla Sixtina de América" en Andahuaylillas.</p>
+                    </a></p>
+                    <p><a href="Itinerarios ES/VALLE SUR MEDIO DIA.pdf"
+                            download="Itinerario_Vallesur_MarisTravel" class="download-button">
+                            📥 Descargar Itinerario
+                        </a></p>
                 </div>
             </div>
 
             <div class="card">
+                <div class="card-img" style="background-image: url('img/gastronomia.jpeg'); background-size: cover;">
+                </div>
                 <div class="card-content">
                     <h3>Experiencias Gastronómicas</h3>
                     <p>Sumérgete en la cultura local con nuestros talleres de chocolate artesanal, coctelería creativa y
@@ -761,6 +820,10 @@
             });
         });
     </script>
+    <a href="https://wa.me/51953112717?text=Hola%20Mari,%20quiero%20info%20de%20las%20excursiones!"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 
 </html>

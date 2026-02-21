@@ -1,118 +1,150 @@
+
+  /* --- Estilos para los botones de descarga --- */
+.download-button {
+      color: var(--orange-main);
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+      font-size: 0.9rem;
+  }
   /* --- Lógica para el botón de idioma --- */
+  /* 1. Por defecto (en PC), el link está oculto */
+  .he-mobile-only {
+      display: none;
+  }
 
-        /* 1. Por defecto (en PC), el link está oculto */
-        .he-mobile-only {
-            display: none;
-        }
+  /* 2. Cuando la pantalla es menor a 768px (Celu), el link aparece */
+  @media (max-width: 768px) {
+      .he-mobile-only {
+          display: inline-block;
+          /* Lo hace visible */
+          text-decoration: none;
+          font-weight: bold;
+          color: #333;
+          /* Cambiá el color según tu diseño */
+          margin-right: 15px;
+          /* Separa el texto del icono de menú ☰ */
+          vertical-align: middle;
+      }
+  }
 
-        /* 2. Cuando la pantalla es menor a 768px (Celu), el link aparece */
-        @media (max-width: 768px) {
-            .he-mobile-only {
-                display: inline-block;
-                /* Lo hace visible */
-                text-decoration: none;
-                font-weight: bold;
-                color: #333;
-                /* Cambiá el color según tu diseño */
-                margin-right: 15px;
-                /* Separa el texto del icono de menú ☰ */
-                vertical-align: middle;
-            }
-        }
+  /* Estilos base compartidos para ambos botones */
+  .whatsapp-float,
+  .instagram-float {
+      position: fixed;
+      right: 40px;
+      /* Alineados a la derecha */
+      width: 60px;
+      height: 60px;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 35px;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  }
 
-          /* Estilos base compartidos para ambos botones */
-        .whatsapp-float,
-        .instagram-float {
-            position: fixed;
-            right: 40px;
-            /* Alineados a la derecha */
-            width: 60px;
-            height: 60px;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+  /* --- WHATSAPP (Abajo) --- */
+  .whatsapp-float {
+      bottom: 40px;
+      background-color: #25d366;
+  }
 
-        /* --- WHATSAPP (Abajo) --- */
-        .whatsapp-float {
-            bottom: 40px;
-            background-color: #25d366;
-        }
+  .whatsapp-float:hover {
+      background-color: #128c7e;
+      transform: scale(1.1);
+  }
 
-        .whatsapp-float:hover {
-            background-color: #128c7e;
-            transform: scale(1.1);
-        }
+  /* --- INSTAGRAM (Arriba de WhatsApp) --- */
+  .instagram-float {
+      bottom: 115px;
+      /* 40px base + 60px del botón + 15px de separación */
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  }
 
-        /* --- INSTAGRAM (Arriba de WhatsApp) --- */
-        .instagram-float {
-            bottom: 115px;
-            /* 40px base + 60px del botón + 15px de separación */
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-        }
+  .instagram-float:hover {
+      filter: brightness(1.1);
+      /* Efecto de brillo al pasar el mouse */
+      transform: scale(1.1);
+  }
 
-        .instagram-float:hover {
-            filter: brightness(1.1);
-            /* Efecto de brillo al pasar el mouse */
-            transform: scale(1.1);
-        }
+  /* --- Ajustes para celulares (Pantallas menores a 768px) --- */
+  @media (max-width: 768px) {
 
-        /* --- Ajustes para celulares (Pantallas menores a 768px) --- */
-        @media (max-width: 768px) {
+      .whatsapp-float,
+      .instagram-float {
+          width: 50px;
+          height: 50px;
+          right: 20px;
+          font-size: 28px;
+      }
 
-            .whatsapp-float,
-            .instagram-float {
-                width: 50px;
-                height: 50px;
-                right: 20px;
-                font-size: 28px;
-            }
+      .whatsapp-float {
+          bottom: 20px;
+      }
 
-            .whatsapp-float {
-                bottom: 20px;
-            }
+      .instagram-float {
+          bottom: 80px;
+          /* 20px base + 50px del botón + 10px de separación */
+      }
 
-            .instagram-float {
-                bottom: 80px;
-                /* 20px base + 50px del botón + 10px de separación */
-            }
+  }
 
-        }
- /* Selector de Idioma */
-        .lang-switch {
-            border: 2px solid var(--orange-main);
-            color: var(--black-main);
-            padding: 5px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            gap: 5px;
-        }
+  /* Selector de Idioma */
+  .lang-switch {
+      border: 2px solid var(--orange-main);
+      color: var(--black-main);
+      padding: 5px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      gap: 5px;
+  }
 
-        .lang-switch:hover,
-        .he-mobile-only:hover {
-            background-color: var(--orange-main);
-            color: white;
-        }
+  .lang-switch:hover,
+  .he-mobile-only:hover {
+      background-color: var(--orange-main);
+      color: white;
+  }
 
-        .he-mobile-only {
-            border: 1px solid var(--orange-main);
-            color: var(--black-main);
-            padding: 2px 10px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.7rem;
-            transition: 0.3s;
-            gap: 4px;
-        }
+  .he-mobile-only {
+      border: 1px solid var(--orange-main);
+      color: var(--black-main);
+      padding: 2px 10px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.7rem;
+      transition: 0.3s;
+      gap: 4px;
+  }
+
+  /* --- Estilos para la sección maps--- */
+  .map-link {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 1px solid var(--orange-main);
+    color: var(--orange-main);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.map-link:hover {
+    background-color: var(--orange-main);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

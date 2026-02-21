@@ -10,6 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700;800&family=Inter:wght@400;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         :root {
             --orange-main: #FF8C00;
@@ -93,24 +94,8 @@
         .nav-links a:hover {
             color: var(--orange-main);
         }
-
-        /* Selector de Idioma */
-        .lang-switch {
-            border: 2px solid var(--orange-main);
-            color: var(--black-main);
-            padding: 5px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .lang-switch:hover {
-            background-color: var(--orange-main);
-            color: white;
-        }
-
+ 
+       
         .mobile-menu-toggle {
             display: block;
             cursor: pointer;
@@ -333,41 +318,7 @@
             }
         }
 
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            left: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            background-color: #128c7e;
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                left: 20px;
-                font-size: 28px;
-            }
-        }
+      
     </style>
 </head>
 
@@ -377,6 +328,7 @@
         <div class="container">
             <div class="nav-content">
                 <a href="#" class="logo"><span>Mari's</span> Travel <img src="logo_Mary.png" alt="logo"></a>
+                <a href="index.html" class="he-mobile-only">ES</a>
                 <nav class="nav-links">
                     <a href="#destinos">יעדים מרכזיים</a>
                     <a href="#aventura">אקסטרים</a>
@@ -776,6 +728,10 @@
     <a href="https://wa.me/51953112717?text=שלום%20מרי,%20אשמח%20לקבל%20מידע%20על%20הטיולים!" class="whatsapp-float"
         target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
+    </a>
+     <a href="https://www.instagram.com/mari_travel_peru/" class="instagram-float" target="_blank"
+        rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
     </a>
 </body>
 

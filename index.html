@@ -8,6 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         :root {
             --orange-main: #FF8C00;
@@ -49,6 +50,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
+     
 
         .nav-content {
             display: flex;
@@ -94,24 +96,7 @@
             color: var(--orange-main);
         }
 
-        /* Selector de Idioma */
-        .lang-switch {
-            border: 2px solid var(--orange-main);
-            color: var(--black-main);
-            padding: 5px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            gap: 5px;
-        }
-
-        .lang-switch:hover {
-            background-color: var(--orange-main);
-            color: white;
-        }
-
+       
         .mobile-menu-toggle {
             display: block;
             cursor: pointer;
@@ -353,46 +338,8 @@
             content: "➖ ";
         }
 
-        /* Estilo base (para computadoras) */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        /* Ajustes para celulares (Pantallas menores a 768px) */
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 50px;
-                /* Un poco más chico */
-                height: 50px;
-                bottom: 20px;
-                /* Más cerca del borde inferior */
-                right: 20px;
-                /* Más cerca del borde derecho */
-                font-size: 28px;
-                /* Icono proporcional */
-            }
-        }
-
-        .whatsapp-float:hover {
-            background-color: #128c7e;
-            transform: scale(1.1);
-        }
+      
+        
     </style>
 </head>
 
@@ -402,6 +349,7 @@
         <div class="container">
             <div class="nav-content">
                 <a href="#" class="logo"><span>Mari's</span> Travel <img src="logo_Mary.png" alt="logo"></a>
+                <a href="hebreo.html" class="he-mobile-only">HE</a>
                 <nav class="nav-links">
                     <a href="#destinos">Principales</a>
                     <a href="#aventura">Aventura</a>
@@ -459,12 +407,12 @@
                             download="Itinerario_Car_MarisTravel" class="download-button">
                             📥 Opción by car
                         </a></p>
-                        <p><a href="Itinerarios ES/INKA JUNGLE 3DIAS 2NOCHES (1).pdf"
-                            download="Itinerario_Inka_MarisTravel" class="download-button">
+                    <p><a href="Itinerarios ES/INKA JUNGLE 3DIAS 2NOCHES (1).pdf" download="Itinerario_Inka_MarisTravel"
+                            class="download-button">
                             📥 Opción Inka Jungle
                         </a></p>
-                        <p><a href="Itinerarios ES/SALKANTAY 5D en español.pdf"
-                            download="Itinerario_Salka_MarisTravel" class="download-button">
+                    <p><a href="Itinerarios ES/SALKANTAY 5D en español.pdf" download="Itinerario_Salka_MarisTravel"
+                            class="download-button">
                             📥 Opción Salkantay
                         </a></p>
                 </div>
@@ -527,6 +475,10 @@
                     <h3>Rafting & Tirolesa</h3>
                     <p>Dos horas de descenso en el río, incluye sauna inca y tirolesa al finalizar. ¡Máxima diversión!
                     </p>
+                    <p><a href="Itinerarios ES/RAFTING RIO URUBAMBA  PROMOCIONAL CHUQUI  2021.pdf" download="Itinerario_Raft_MarisTravel"
+                            class="download-button">
+                            📥 Descargar Itinerario
+                        </a></p>
 
                 </div>
             </div>
@@ -851,6 +803,10 @@
     <a href="https://wa.me/51953112717?text=Hola%20Mari,%20quiero%20info%20de%20las%20excursiones!"
         class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://www.instagram.com/mari_travel_peru/" class="instagram-float" target="_blank"
+        rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
     </a>
 </body>
 

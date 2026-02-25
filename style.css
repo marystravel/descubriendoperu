@@ -1,13 +1,26 @@
 
   /* --- Estilos para los botones de descarga --- */
-.download-button {
-      color: var(--orange-main);
-      text-decoration: none;
-      font-weight: bold;
-      display: block;
-      margin-top: 10px;
-      font-size: 0.9rem;
-  }
+  .download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--orange-main);
+    color: white;
+    padding: 5px 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 1%;
+}
+
+.download-button:hover {
+    background-color: var(--black-main);
+}
+
+.download-button .material-symbols-outlined {
+    font-size: 20px;
+}
   /* --- Lógica para el botón de idioma --- */
   /* 1. Por defecto (en PC), el link está oculto */
   .he-mobile-only {
